@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: linear-gradient(180deg,
+            #63b8ff,
+            #d7f2ff);
+
+}
+
+.results-screen {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+.results-card {
+
+    width: 520px;
+
+    background: white;
+
+    border-radius: 30px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow: 0 25px 45px rgba(0, 0, 0, .18);
+}
+
+/*=========================
+TROFEO
+=========================*/
+
+.trophy {
+
+    font-size: 90px;
+
+    margin-bottom: 15px;
+}
+
+.results-title {
+
+    color: #334155;
+
+    font-size: 2.4rem;
+
+    margin-bottom: 10px;
+}
+
+.results-player {
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+    font-size: 18px;
+}
+
+/*=========================
+PUNTAJE
+=========================*/
+
+.final-score {
+
+    background: #f8fafc;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+}
+
+.final-score span {
+
+    color: #64748b;
+
+    font-size: 18px;
+}
+
+.final-score h2 {
+
+    margin-top: 10px;
+
+    font-size: 70px;
+
+    color: #2563eb;
+}
+
+/*=========================
+ESTADISTICAS
+=========================*/
+
+.stats {
+
+    background: #f1f5f9;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: left;
+
+    margin-bottom: 30px;
+}
+
+.stats h3 {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    color: #334155;
+}
+
+.stat {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #dbe3ea;
+
+    font-size: 17px;
+}
+
+.stat:last-child {
+
+    border: none;
+}
+
+/*=========================
+MENSAJE
+=========================*/
+
+.message {
+
+    background: #fff8db;
+
+    border-left: 6px solid #facc15;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 35px;
+}
+
+.message h3 {
+
+    color: #ca8a04;
+
+    margin-bottom: 10px;
+}
+
+.message p {
+
+    color: #555;
+}
+
+/*=========================
+BOTON
+=========================*/
+
+.play-again {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #22c55e;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.play-again:hover {
+
+    background: #16a34a;
+
+    transform: translateY(-3px);
+}

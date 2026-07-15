@@ -1,0 +1,119 @@
+.balloon {
+
+    width: 70px;
+    height: 85px;
+
+    position: relative;
+
+    border-radius: 50% 50% 48% 48%;
+
+    cursor: pointer;
+
+    transition: transform .2s ease;
+
+    animation: float 2s ease-in-out infinite;
+}
+
+.balloon:hover {
+
+    transform: scale(1.08);
+}
+
+/*=========================
+BRILLO
+=========================*/
+
+.balloon-shine {
+
+    position: absolute;
+
+    width: 16px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .45);
+
+    top: 16px;
+    left: 18px;
+
+    transform: rotate(-20deg);
+}
+
+/*=========================
+NUDO
+=========================*/
+
+.balloon-knot {
+
+    position: absolute;
+
+    width: 12px;
+    height: 12px;
+
+    background: inherit;
+
+    left: 50%;
+    bottom: -6px;
+
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/*=========================
+CUERDA
+=========================*/
+
+.balloon-string {
+
+    position: absolute;
+
+    width: 2px;
+    height: 40px;
+
+    background: #555;
+
+    left: 50%;
+    top: 100%;
+
+    transform: translateX(-50%);
+}
+
+/*=========================
+COLORES
+=========================*/
+
+.red {
+    background: #ff4d4d;
+}
+
+.green {
+    background: #22c55e;
+}
+
+.blue {
+    background: #3b82f6;
+}
+
+.black {
+    background: #1f2937;
+}
+
+/*=========================
+ANIMACIÓN
+=========================*/
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}

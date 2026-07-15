@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.start-screen {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(180deg,
+            #6fc3ff,
+            #9ed9ff,
+            #d9f3ff);
+}
+
+/*==========================
+NUBES
+==========================*/
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: .8;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 140px;
+    height: 45px;
+    top: 90px;
+    left: 80px;
+}
+
+.cloud-1::before {
+    width: 50px;
+    height: 50px;
+    left: 15px;
+    top: -20px;
+}
+
+.cloud-1::after {
+    width: 60px;
+    height: 60px;
+    right: 15px;
+    top: -25px;
+}
+
+.cloud-2 {
+    width: 170px;
+    height: 55px;
+    right: 120px;
+    top: 140px;
+}
+
+.cloud-2::before {
+    width: 60px;
+    height: 60px;
+    left: 25px;
+    top: -20px;
+}
+
+.cloud-2::after {
+    width: 70px;
+    height: 70px;
+    right: 20px;
+    top: -30px;
+}
+
+.cloud-3 {
+    width: 120px;
+    height: 40px;
+    bottom: 120px;
+    left: 200px;
+}
+
+.cloud-3::before {
+    width: 45px;
+    height: 45px;
+    left: 15px;
+    top: -18px;
+}
+
+.cloud-3::after {
+    width: 50px;
+    height: 50px;
+    right: 15px;
+    top: -20px;
+}
+
+/*==========================
+CARD
+==========================*/
+
+.game-card {
+
+    width: 430px;
+    background: white;
+    border-radius: 30px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, .18);
+
+    text-align: center;
+}
+
+/*==========================
+LOGO
+==========================*/
+
+.game-logo {
+
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.game-title {
+
+    font-size: 2.3rem;
+    color: #2d3748;
+}
+
+.game-subtitle {
+
+    color: #64748b;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+/*==========================
+INPUT
+==========================*/
+
+.player-section {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.input-label {
+
+    text-align: left;
+    font-weight: bold;
+    color: #374151;
+}
+
+.player-input {
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #edf2f7;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: .3s;
+}
+
+.player-input:focus {
+
+    background: white;
+
+    box-shadow:
+        0 0 0 3px #6fc3ff;
+}
+
+/*==========================
+REGLAS
+==========================*/
+
+.rules {
+
+    background: #f8fafc;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 30px;
+}
+
+.rules h2 {
+
+    margin-bottom: 20px;
+    color: #334155;
+}
+
+.rule {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 12px 0;
+}
+
+.balloon {
+
+    width: 26px;
+    height: 34px;
+
+    border-radius: 50% 50% 45% 45%;
+
+    position: relative;
+}
+
+.balloon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+    height: 14px;
+
+    background: #555;
+
+    left: 50%;
+    top: 100%;
+
+    transform: translateX(-50%);
+}
+
+.red {
+
+    background: #ff4d4d;
+}
+
+.green {
+
+    background: #32d74b;
+}
+
+.blue {
+
+    background: #3b82f6;
+}
+
+.black {
+
+    background: #2d3436;
+}
+
+/*==========================
+BOTON
+==========================*/
+
+.start-button {
+
+    width: 100%;
+
+    padding: 18px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #ffb703;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.start-button:hover {
+
+    transform: translateY(-4px);
+
+    background: #fb8500;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 25px;
+}
+
+legend {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #334155;
+    margin-bottom: 20px;
+}
