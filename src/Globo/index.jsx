@@ -1,7 +1,7 @@
 import React from 'react'
 import './globo.css'
 
-const Globo = ({color}) => {
+const Globo = ({ color }) => {
     return (
         <div className={`balloon ${color}`}>
             <div className="balloon-shine"></div>

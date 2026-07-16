@@ -5,7 +5,7 @@ import { JuegoContexto } from '../JuegoContext';
 const PantallaInicio = () => {
     const {
         setPantalla,
-        agregarJugador
+        agregarJugador,
     } = useContext(JuegoContexto)
 
     return (

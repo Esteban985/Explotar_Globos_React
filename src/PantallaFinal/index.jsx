@@ -1,7 +1,17 @@
 import React from 'react'
 import './PantallaFinal.css'
+import { useContext } from 'react'
+import { JuegoContexto } from '../JuegoContext'
 
 const PantallaFinal = () => {
+    const {
+        setPantalla,
+        jugador,
+        puntaje,
+        globosTotal,
+        globosPositivos,
+        globosNegros
+    } = useContext(JuegoContexto)
     return (
         <main className="results-screen">
 
@@ -17,14 +27,14 @@ const PantallaFinal = () => {
 
                 <p className="results-player">
                     Excelente trabajo
-                    <strong> Esteban</strong>
+                    <strong>{jugador}</strong>
                 </p>
 
                 <div className="final-score">
 
                     <span>Puntaje Final</span>
 
-                    <h2>28</h2>
+                    <h2>{puntaje}</h2>
 
                 </div>
 
@@ -34,17 +44,17 @@ const PantallaFinal = () => {
 
                     <div className="stat">
                         <span>🎈 Globos explotados</span>
-                        <strong>35</strong>
+                        <strong>{globosTotal}</strong>
                     </div>
 
                     <div className="stat">
                         <span>🟢 Globos positivos</span>
-                        <strong>30</strong>
+                        <strong>{globosPositivos}</strong>
                     </div>
 
                     <div className="stat">
                         <span>⚫ Globos negros</span>
-                        <strong>5</strong>
+                        <strong>{globosNegros}</strong>
                     </div>
 
                 </section>
@@ -61,7 +71,7 @@ const PantallaFinal = () => {
 
                 </section>
 
-                <button className="play-again">
+                <button className="play-again" onClick={() => setPantalla('Inicio')}>
                     🔄 Volver a jugar
                 </button>
 

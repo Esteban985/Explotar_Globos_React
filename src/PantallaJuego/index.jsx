@@ -5,6 +5,8 @@ import { useContext } from 'react'
 import { JuegoContexto } from '../JuegoContext'
 import { useEffect } from 'react'
 import { DivContenedor } from '../DivContenedor'
+import { Reloj } from './Reloj'
+
 
 const PantallaJuego = () => {
     const tablero = [
@@ -15,38 +17,95 @@ const PantallaJuego = () => {
         {}, {}, {}, {}, {}, {}, {}, {}
     ]
 
+    const colores = [
+        'red',
+        'green',
+        'blue',
+        'black'
+    ]
+
     const {
         setPantalla,
         jugador,
+        puntaje,
     } = useContext(JuegoContexto)
 
-    const [puntaje, setPuntaje] = useState(0)
-    const [tiempo, setTiempo] = useState(30)
-    const [pintar, setPintar] = useState(true)
+    const [globo, setGlobo] = useState(
+        Math.floor(Math.random() * tablero.length)
+    )
+    const [color, setColor] = useState(
+        Math.floor(Math.random() * colores.length)
+    )
 
-    const num = Math.floor(Math.random() * 40) + 1
-
-    const sumarUno = () => {
-        setPuntaje(puntaje + 1)
+    const cambiarEstado = () => {
+        setGlobo(Math.floor(Math.random() * tablero.length))
+        setColor(Math.floor(Math.random() * colores.length))
     }
 
+    useEffect(() => {
+        let time = setInterval(() => {
+            cambiarEstado()
+        }, 2500)
+
+        return () => {
+            clearInterval(time)
+        }
+    }, [])
+
+    const cambiarAlgunNumero = (posicion) => {
+        // console.log(posicion)
+        // console.log(numerosRandom)
+        for (let i = 0; i < numerosRandom.length; i++) {
+            if (numerosRandom[i] == posicion) {
+                console.log(numerosRandom[i])
+                numerosRandom[i] == Math.random(Math.floor() * tablero.length)
+                console.log(numerosRandom[i])
+            }
+        }
+    }
+
+    let num;
+
+    const [posiciones, setPosiciones] = useState(Array(5).fill(0))
+
+    useEffect(() => {
+        for (let i = 0; i < posiciones.length; i++) {
+            if (posiciones[i] == 0) {
+                let copia = [...posiciones]
+                console.log(copia)
+            }
+        }
+        console.log(posiciones)
+    }, [])
+
     // useEffect(() => {
-    //     let numero = 30
-    //     const intervalo = setInterval(() => {
-    //         numero -= 1;
-    //         setTiempo(numero)
-    //         if (numero == -1) {
-    //             setPantalla('Final')
+    //     for (let i = 0; i < numerosRandom.length; i++) {
+    //         if (numerosRandom[i] == 0) {
+    //             numerosRandom[i] = numeroRandom()
     //         }
-    //     }, 1000);
+    //     }
 
-    //     return () => {
-    //         clearInterval(intervalo);
-    //     };
+    // }, [])
 
-    // }, []);
+    
+    
+    const numeroRandom = () => {
+        let numero = Math.floor(Math.random() * 40)
+        return numero
+    }
 
+    let numerosRandom = [0, 0, 0, 0, 0]
 
+    for (let i = 0; i < numerosRandom.length; i++) {
+        if (numerosRandom[i] == 0) {
+            if (i == 0) {
+                numerosRandom[i]
+            }
+            numerosRandom[i] = numeroRandom()
+        } else {
+            numerosRandom[i] == numerosRandom[i]
+        }
+    }
 
     return (
         <main className="game">
@@ -69,10 +128,7 @@ const PantallaJuego = () => {
                         <p>{puntaje}</p>
                     </div>
 
-                    <div className="info-card">
-                        <span>⏱</span>
-                        <p>{tiempo}</p>
-                    </div>
+                    <Reloj />
 
                 </div>
 
@@ -81,11 +137,19 @@ const PantallaJuego = () => {
             <section className="game-board">
                 {
                     tablero.map((pos, index) => {
-                        console.log(num)
-                        if (num == index) {
-                            return <DivContenedor key={index} num={num} onPintar={() => setPintar(!pintar)} activar={'si'} />
+                        if (numerosRandom.includes(index)) {
+                            return <DivContenedor
+                                key={index}
+                                activar={true}
+                                onCambiarEstado={() => cambiarEstado()}
+                                onCambiarPosicion={() => cambiarAlgunNumero(index)}
+                                color={colores[Math.floor(Math.random() * colores.length)]}
+                            />
                         } else {
-                            return <DivContenedor key={index} num={num} onPintar={() => setPintar(!pintar)} activar={'no'} />
+                            return <DivContenedor
+                                key={index}
+                                activar={false}
+                            />
                         }
                     })
                 }

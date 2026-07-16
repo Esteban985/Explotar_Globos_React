@@ -1,19 +1,25 @@
+import { useContext, useEffect } from 'react';
 import React from 'react'
 import { Globo } from '../Globo';
+import { JuegoContexto } from '../JuegoContext';
 
-const colores = [
-    'red',
-    'green',
-    'blue',
-    'black'
-]
+const DivContenedor = ({ onCambiarEstado, activar, color, onCambiarPosicion }) => {
+    const {
+        verificarPuntos,
+    } = useContext(JuegoContexto)
 
-const DivContenedor = ({ num, onPintar, activar }) => {
-    return (
-        <div className="cell" onClick={() => onPintar}>
-            {(activar == 'si') && <Globo color={'red'} />}
-        </div>
-    );
+    if (activar) {
+        return (
+            <div className="cell balloon-cell" onClick={() => { onCambiarEstado(), verificarPuntos(color) }}>
+                <Globo color={color} />
+            </div>
+        );
+    } else {
+        return (
+            <div className='cell'>
+            </div>
+        )
+    }
 }
 
 export { DivContenedor };
