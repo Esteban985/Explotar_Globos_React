@@ -10,7 +10,9 @@ const PantallaFinal = () => {
         puntaje,
         globosTotal,
         globosPositivos,
-        globosNegros
+        globosNegros,
+        reiniciarTodo,
+        conservarNombre
     } = useContext(JuegoContexto)
     return (
         <main className="results-screen">
@@ -27,6 +29,7 @@ const PantallaFinal = () => {
 
                 <p className="results-player">
                     Excelente trabajo
+                    <br />
                     <strong>{jugador}</strong>
                 </p>
 
@@ -60,24 +63,45 @@ const PantallaFinal = () => {
                 </section>
 
                 <section className="message">
-
-                    <h3>
-                        🎉 ¡Muy bien!
-                    </h3>
-
-                    <p>
-                        Seguiste explotando globos durante toda la partida.
-                    </p>
+                    {(puntaje < 0) && (
+                        <>
+                            < h3 >¡Ten cuidado!</h3>
+                            <p>¡Cuidado con los globos negros!</p>
+                        </>
+                    )}
+                    {(puntaje > 0 && puntaje <= 10) && (
+                        <>
+                            < h3 >¡Buen Intento!</h3>
+                            <p>¡Sigue practicando!</p>
+                        </>
+                    )}
+                    {(puntaje > 10 && puntaje <= 25) && (
+                        <>
+                            < h3 >¡Muy bien!</h3>
+                            <p>¡Tienes mucha habilidad!</p>
+                        </>
+                    )}
+                    {(puntaje > 25) && (
+                        <>
+                            < h3 >¡Excelente!</h3>
+                            <p>¡Eres un maestro explotando globos!</p>
+                        </>
+                    )}
 
                 </section>
 
-                <button className="play-again" onClick={() => setPantalla('Inicio')}>
-                    🔄 Volver a jugar
-                </button>
+                <div className='botones'>
+                    <button className="play-again" onClick={() => { setPantalla('Inicio'), reiniciarTodo() }}>
+                        🔄 Volver a jugar
+                    </button>
 
+                    <button className='play-again' onClick={() => { conservarNombre(), reiniciarTodo() }}>
+                        Conservar Nombre ?
+                    </button>
+                </div>
             </section>
 
-        </main>
+        </main >
     )
 }
 

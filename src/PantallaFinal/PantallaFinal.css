@@ -5,40 +5,34 @@
 }
 
 body {
-
     font-family: Arial, Helvetica, sans-serif;
-
     background: linear-gradient(180deg,
             #63b8ff,
             #d7f2ff);
-
+    /* Congela la pantalla principal para que no aparezca el scroll del navegador */
+    overflow: hidden; 
 }
 
 .results-screen {
-
-    min-height: 100vh;
-
+    /* Cambiado a height fijo para asegurar que ocupe exactamente la pantalla disponible */
+    height: 100vh;
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
-    padding: 30px;
+    padding: 20px;
 }
 
 .results-card {
-
     width: 520px;
-
+    /* Limita la altura de la tarjeta para que nunca salte de los bordes de la pantalla */
+    max-height: 95vh;
+    /* Si la pantalla es muy pequeña (como un teléfono en horizontal), la tarjeta crea su propio scroll limpio */
+    overflow-y: auto;
     background: white;
-
     border-radius: 30px;
-
-    padding: 40px;
-
+    /* Reducido ligeramente de 40px para ahorrar espacio vertical */
+    padding: 25px 35px;
     text-align: center;
-
     box-shadow: 0 25px 45px rgba(0, 0, 0, .18);
 }
 
@@ -47,28 +41,23 @@ TROFEO
 =========================*/
 
 .trophy {
-
-    font-size: 90px;
-
-    margin-bottom: 15px;
-}
-
-.results-title {
-
-    color: #334155;
-
-    font-size: 2.4rem;
-
+    /* Reducido de 90px para controlar el tamaño en vertical */
+    font-size: 65px;
     margin-bottom: 10px;
 }
 
+.results-title {
+    color: #334155;
+    /* Ajustado de 2.4rem a 2rem */
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
 .results-player {
-
     color: #64748b;
-
-    margin-bottom: 35px;
-
-    font-size: 18px;
+    /* Reducido de 35px a 20px */
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
 /*=========================
@@ -76,30 +65,25 @@ PUNTAJE
 =========================*/
 
 .final-score {
-
     background: #f8fafc;
-
     border-radius: 20px;
-
-    padding: 25px;
-
-    margin-bottom: 30px;
+    /* Más compacto */
+    padding: 15px 20px;
+    /* Reducido de 30px a 20px */
+    margin-bottom: 20px;
 }
 
 .final-score span {
-
     color: #64748b;
-
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .final-score h2 {
-
-    margin-top: 10px;
-
-    font-size: 70px;
-
+    margin-top: 5px;
+    /* Reducido de 70px a 50px */
+    font-size: 50px;
     color: #2563eb;
+    line-height: 1;
 }
 
 /*=========================
@@ -107,42 +91,33 @@ ESTADISTICAS
 =========================*/
 
 .stats {
-
     background: #f1f5f9;
-
     border-radius: 20px;
-
-    padding: 25px;
-
+    /* Reducido de 25px a 15px */
+    padding: 15px 20px;
     text-align: left;
-
-    margin-bottom: 30px;
+    /* Reducido de 30px a 20px */
+    margin-bottom: 20px;
 }
 
 .stats h3 {
-
     text-align: center;
-
-    margin-bottom: 20px;
-
+    /* Reducido de 20px a 10px */
+    margin-bottom: 10px;
+    font-size: 1.1rem;
     color: #334155;
 }
 
 .stat {
-
     display: flex;
-
     justify-content: space-between;
-
-    padding: 14px 0;
-
+    /* Espaciado interno más sutil entre filas */
+    padding: 10px 0;
     border-bottom: 1px solid #dbe3ea;
-
-    font-size: 17px;
+    font-size: 16px;
 }
 
 .stat:last-child {
-
     border: none;
 }
 
@@ -151,28 +126,24 @@ MENSAJE
 =========================*/
 
 .message {
-
     background: #fff8db;
-
     border-left: 6px solid #facc15;
-
     border-radius: 15px;
-
-    padding: 20px;
-
-    margin-bottom: 35px;
+    /* Un poco más compacto */
+    padding: 15px;
+    /* Reducido de 35px a 20px */
+    margin-bottom: 20px;
 }
 
 .message h3 {
-
     color: #ca8a04;
-
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
 }
 
 .message p {
-
     color: #555;
+    font-size: 15px;
 }
 
 /*=========================
@@ -180,31 +151,26 @@ BOTON
 =========================*/
 
 .play-again {
-
     width: 100%;
-
-    padding: 18px;
-
+    /* Reducido de 18px a 15px */
+    padding: 15px;
     border: none;
-
     border-radius: 15px;
-
     background: #22c55e;
-
     color: white;
-
     font-size: 18px;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: .3s;
 }
 
 .play-again:hover {
-
     background: #16a34a;
-
     transform: translateY(-3px);
+}
+
+.botones {
+    display: flex;
+    /* Un espacio de 15px a 20px suele verse mejor en contenedores de este tamaño */
+    gap: 20px; 
 }

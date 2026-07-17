@@ -6,15 +6,19 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
+    /* Evita que el navegador genere scrollbars rebeldes a nivel global */
+    overflow: hidden;
 }
 
 .start-screen {
     width: 100%;
-    min-height: 100vh;
+    /* Cambiado de min-height a height fijo para asegurar que no pase del alto de la pantalla */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    /* Oculta las nubes o contenido que intente salirse de los bordes */
     overflow: hidden;
 
     background: linear-gradient(180deg,
@@ -110,16 +114,16 @@ CARD
 ==========================*/
 
 .game-card {
-
     width: 430px;
+    /* Evita que la tarjeta sea más alta que la pantalla en laptops pequeñas o celulares */
+    max-height: 95vh;
+    /* Si la pantalla es extremadamente pequeña, la tarjeta tendrá su propio scroll interno discreto */
+    overflow-y: auto;
     background: white;
     border-radius: 30px;
-
-    padding: 40px;
-
-    box-shadow:
-        0 20px 45px rgba(0, 0, 0, .18);
-
+    /* Reducido ligeramente de 40px para ganar espacio vertical */
+    padding: 30px 40px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, .18);
     text-align: center;
 }
 
@@ -128,23 +132,22 @@ LOGO
 ==========================*/
 
 .game-logo {
-
-    font-size: 70px;
-    margin-bottom: 15px;
+    /* Reducido un poco para ahorrar espacio */
+    font-size: 55px;
+    margin-bottom: 10px;
 }
 
 .game-title {
-
-    font-size: 2.3rem;
+    font-size: 2rem;
     color: #2d3748;
 }
 
 .game-subtitle {
-
     color: #64748b;
-    margin-top: 10px;
-    margin-bottom: 35px;
-    line-height: 1.5;
+    margin-top: 5px;
+    /* Reducido de 35px a 20px */
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
 /*==========================
@@ -152,43 +155,32 @@ INPUT
 ==========================*/
 
 .player-section {
-
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 35px;
+    gap: 8px;
+    /* Reducido de 35px a 20px */
+    margin-bottom: 20px;
 }
 
 .input-label {
-
     text-align: left;
     font-weight: bold;
     color: #374151;
 }
 
 .player-input {
-
-    padding: 15px;
-
+    padding: 12px 15px;
     border: none;
-
     border-radius: 12px;
-
     background: #edf2f7;
-
     font-size: 16px;
-
     outline: none;
-
     transition: .3s;
 }
 
 .player-input:focus {
-
     background: white;
-
-    box-shadow:
-        0 0 0 3px #6fc3ff;
+    box-shadow: 0 0 0 3px #6fc3ff;
 }
 
 /*==========================
@@ -196,77 +188,60 @@ REGLAS
 ==========================*/
 
 .rules {
-
     background: #f8fafc;
-
     border-radius: 18px;
-
-    padding: 25px;
-
-    margin-bottom: 30px;
+    /* Reducido un poco el padding interno de las reglas */
+    padding: 15px 20px;
+    /* Reducido de 30px a 20px */
+    margin-bottom: 20px;
 }
 
 .rules h2 {
-
-    margin-bottom: 20px;
+    /* Reducido de 20px a 10px */
+    margin-bottom: 10px;
+    font-size: 1.2rem;
     color: #334155;
 }
 
 .rule {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
-    margin: 12px 0;
+    /* Reducido de 12px a 8px */
+    margin: 8px 0;
 }
 
 .balloon {
-
     width: 26px;
     height: 34px;
-
     border-radius: 50% 50% 45% 45%;
-
     position: relative;
 }
 
 .balloon::after {
-
     content: "";
-
     position: absolute;
-
     width: 2px;
     height: 14px;
-
     background: #555;
-
     left: 50%;
     top: 100%;
-
     transform: translateX(-50%);
 }
 
 .red {
-
     background: #ff4d4d;
 }
 
 .green {
-
     background: #32d74b;
 }
 
 .blue {
-
     background: #3b82f6;
 }
 
 .black {
-
     background: #2d3436;
 }
 
@@ -275,44 +250,33 @@ BOTON
 ==========================*/
 
 .start-button {
-
     width: 100%;
-
-    padding: 18px;
-
+    padding: 16px;
     border: none;
-
     border-radius: 15px;
-
     background: #ffb703;
-
     color: white;
-
     font-size: 18px;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: .3s;
 }
 
 .start-button:hover {
-
     transform: translateY(-4px);
-
     background: #fb8500;
 }
 
 fieldset {
     border: none;
     margin: 0;
-    padding: 25px;
+    /* Ajustado para mantener simetría con la reducción del card */
+    padding: 15px;
 }
 
 legend {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #334155;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }

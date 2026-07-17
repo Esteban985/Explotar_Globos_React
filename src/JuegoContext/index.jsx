@@ -23,9 +23,10 @@ const JuegoProvider = ({ children }) => {
     }
 
     const verificarPuntos = (color) => {
+
         let temp = valorGlobos.filter(item => item.color == color)
 
-        setPuntaje(puntaje + temp[0].valor)
+        setPuntaje((prev) => prev + temp[0].valor)
 
         setGlobosTotal((prev) => prev + 1)
 
@@ -34,6 +35,17 @@ const JuegoProvider = ({ children }) => {
         } else {
             setGlobosNegros((prev) => prev + 1)
         }
+    }
+
+    const reiniciarTodo = () => {
+        setPuntaje(0);
+        setGlobosTotal(0);
+        setGlobosPositivos(0);
+        setGlobosNegros(0);
+    }
+
+    const conservarNombre = () => {
+        setPantalla('Juego')
     }
 
     return (
@@ -46,7 +58,9 @@ const JuegoProvider = ({ children }) => {
             verificarPuntos,
             globosTotal,
             globosPositivos,
-            globosNegros
+            globosNegros,
+            reiniciarTodo,
+            conservarNombre
         }}>
             {children}
         </JuegoContexto.Provider>

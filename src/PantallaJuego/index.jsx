@@ -30,81 +30,72 @@ const PantallaJuego = () => {
         puntaje,
     } = useContext(JuegoContexto)
 
-    const [globo, setGlobo] = useState(
-        Math.floor(Math.random() * tablero.length)
-    )
-    const [color, setColor] = useState(
-        Math.floor(Math.random() * colores.length)
-    )
+    const posicionLibre = (globos, totalTablero) => {
+        let posicion;
 
-    const cambiarEstado = () => {
-        setGlobo(Math.floor(Math.random() * tablero.length))
-        setColor(Math.floor(Math.random() * colores.length))
+        do {
+            posicion = Math.floor(Math.random() * totalTablero)
+        } while (!globos.every((globo) => globo.posicion != posicion))
+
+        return posicion;
     }
 
+    const obtenerColor = () => {
+        let color = ''
+        let posicion = Math.floor(Math.random() * colores.length)
+        color = colores[posicion]
+        return color
+    }
+
+    const [globos, setGlobos] = useState([
+        {
+            id: Math.floor(Date.now() * Math.random()),
+            posicion: posicionLibre([], tablero.length),
+            color: obtenerColor()
+        }
+    ])
+
     useEffect(() => {
-        let time = setInterval(() => {
-            cambiarEstado()
-        }, 2500)
+        let segundo = setInterval(() => {
+            setGlobos((prev) => {
+                if (prev.length < 5) {
+                    return [
+                        ...prev,
+                        {
+                            id: Math.floor(Date.now() * Math.random()),
+                            posicion: posicionLibre(prev, tablero.length),
+                            color: obtenerColor()
+                        }
+                    ]
+                } else {
+                    return [
+                        ...prev.slice(1),
+                        {
+                            id: Math.floor(Date.now() * Math.random()),
+                            posicion: posicionLibre(prev.slice(1), tablero.length),
+                            color: obtenerColor()
+                        }
+                    ]
+                }
+            })
+        }, 1000)
 
         return () => {
-            clearInterval(time)
+            clearInterval(segundo)
         }
     }, [])
 
-    const cambiarAlgunNumero = (posicion) => {
-        // console.log(posicion)
-        // console.log(numerosRandom)
-        for (let i = 0; i < numerosRandom.length; i++) {
-            if (numerosRandom[i] == posicion) {
-                console.log(numerosRandom[i])
-                numerosRandom[i] == Math.random(Math.floor() * tablero.length)
-                console.log(numerosRandom[i])
+    const eliminarPulsado = (id) => {
+        let copia = globos.filter(globo => globo.id != id)
+        copia = [
+            ...copia,
+            {
+                id: Math.floor(Date.now() * Math.random()),
+                posicion: posicionLibre(copia, tablero.length),
+                color: obtenerColor()
             }
-        }
-    }
-
-    let num;
-
-    const [posiciones, setPosiciones] = useState(Array(5).fill(0))
-
-    useEffect(() => {
-        for (let i = 0; i < posiciones.length; i++) {
-            if (posiciones[i] == 0) {
-                let copia = [...posiciones]
-                console.log(copia)
-            }
-        }
-        console.log(posiciones)
-    }, [])
-
-    // useEffect(() => {
-    //     for (let i = 0; i < numerosRandom.length; i++) {
-    //         if (numerosRandom[i] == 0) {
-    //             numerosRandom[i] = numeroRandom()
-    //         }
-    //     }
-
-    // }, [])
-
-    
-    
-    const numeroRandom = () => {
-        let numero = Math.floor(Math.random() * 40)
-        return numero
-    }
-
-    let numerosRandom = [0, 0, 0, 0, 0]
-
-    for (let i = 0; i < numerosRandom.length; i++) {
-        if (numerosRandom[i] == 0) {
-            if (i == 0) {
-                numerosRandom[i]
-            }
-            numerosRandom[i] = numeroRandom()
-        } else {
-            numerosRandom[i] == numerosRandom[i]
-        }
+        ]
+        setGlobos(copia)
     }
 
     return (
@@ -137,13 +128,13 @@ const PantallaJuego = () => {
             <section className="game-board">
                 {
                     tablero.map((pos, index) => {
-                        if (numerosRandom.includes(index)) {
+                        let globoActual = globos.find(globo => globo.posicion == index)
+                        if (globoActual) {
                             return <DivContenedor
                                 key={index}
                                 activar={true}
-                                onCambiarEstado={() => cambiarEstado()}
-                                onCambiarPosicion={() => cambiarAlgunNumero(index)}
-                                color={colores[Math.floor(Math.random() * colores.length)]}
+                                onEliminarPulsado={() => eliminarPulsado(globoActual.id)}
+                                color={globoActual.color}
                             />
                         } else {
                             return <DivContenedor
