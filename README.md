@@ -30,6 +30,14 @@ Además, el jugador puede volver a jugar o conservar su nombre para iniciar una 
 
 ---
 
+# 🌐 Demo del proyecto
+
+Puedes acceder al juego desde el siguiente enlace:
+
+🔗 **https://esteban985.github.io/Explotar_Globos_React/**
+
+---
+
 # 🖼️ Capturas de pantalla
 
 ## 🏠 Pantalla de Inicio
