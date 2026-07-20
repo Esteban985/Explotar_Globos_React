@@ -69,7 +69,7 @@ Puedes acceder al juego desde el siguiente enlace:
 ## 1. Clonar el repositorio
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/Esteban985/Explotar_Globos_React.git
 ```
 
 ## 2. Entrar a la carpeta
