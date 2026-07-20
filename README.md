@@ -170,12 +170,14 @@ De esta manera, React vuelve a renderizar únicamente los cambios del estado, da
 ```
 src/
 │
-├── Components/
+├── DivContenedor/
+├── Globo/
+├── Inicio/
 ├── JuegoContext/
+├── PantallaFinal/
+├── PantallaJuego/
 ├── App.jsx
 ├── main.jsx
-│
-└── assets/
 ```
 
 ---
