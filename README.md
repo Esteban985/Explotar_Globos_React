@@ -75,7 +75,7 @@ git clone https://github.com/Esteban985/Explotar_Globos_React.git
 ## 2. Entrar a la carpeta
 
 ```bash
-cd nombre-del-proyecto
+cd Explotar_Globos_React
 ```
 
 ## 3. Instalar las dependencias
